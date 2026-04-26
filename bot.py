@@ -9,7 +9,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
 BOT_TOKEN = “8725776252:AAE1QI_Sl_UgsFvBZtnYa71PE6n5h8qyoh0”
-CHAT_ID = 586687616
+CHAT_ID = -1003632635325
 SEND_HOUR = 7
 SEND_MINUTE = 0
 TIMEZONE = “Europe/Moscow”
