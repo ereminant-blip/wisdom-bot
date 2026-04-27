@@ -196,7 +196,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Уильям Тёрнер — «Дождь, пар и скорость» (1844)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/thirty/Rain%2C_Steam_and_Speed_the_Great_Western_Railway.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Rain_Steam_and_Speed_the_Great_Western_Railway.jpg/1280px-Rain_Steam_and_Speed_the_Great_Western_Railway.jpg",
         "description": "Тёрнер изобразил паровоз на мосту в дождь и туман так, что граница между реальным и растворённым практически исчезает. Говорят, художник высунулся из окна движущегося поезда в грозу, чтобы почувствовать скорость. Картина считается провидческой — она предвосхитила импрессионизм на двадцать лет.",
     },
     {
@@ -251,7 +251,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Жак-Луи Давид — «Клятва Горациев» (1784)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/thirty/Jacques-Louis_David_-_Oath_of_the_Horatii_-_WGA06074.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Jacques-Louis_David%2C_Le_Serment_des_Horaces.jpg/1280px-Jacques-Louis_David%2C_Le_Serment_des_Horaces.jpg",
         "description": "Написана за пять лет до Французской революции — и стала её предвестником. Три брата клянутся умереть за Рим, их женщины рыдают на заднем плане. Давид создал образ гражданского долга выше личного чувства. Картина была принята публикой с огромным воодушевлением именно потому, что угадывала что-то в воздухе времени.",
     },
     {
@@ -271,7 +271,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Пьер Боннар — «Столовая в деревне» (1913)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/thirty/Pierre_Bonnard%2C_1913%2C_La_salle_%C3%A0_manger_%C3%A0_la_campagne_%28The_Dining_Room_in_the_Country%29%2C_oil_on_canvas%2C_164.5_x_205.7_cm%2C_Minneapolis_Institute_of_Art.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Pierre_Bonnard%2C_1913%2C_La_salle_%C3%A0_manger_%C3%A0_la_campagne.jpg/800px-Pierre_Bonnard%2C_1913%2C_La_salle_%C3%A0_manger_%C3%A0_la_campagne.jpg",
         "description": "Боннар изображал домашнюю жизнь — столы, окна, сады, своих близких — с удивительной насыщенностью цвета. Критики называли его «последним импрессионистом», хотя сам он считал себя продолжателем Гогена. Его жена Марта стала главной героиней сотен картин — замкнутая, тревожная, почти всегда наедине с собой.",
     },
     {
@@ -281,12 +281,12 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Берта Моризо — «Колыбель» (1872)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/4/forty/Berthe_Morisot_-_Le_Berceau_-_Mus%C3%A9e_d%27Orsay.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Berthe_Morisot_-_Le_berceau.jpg/800px-Berthe_Morisot_-_Le_berceau.jpg",
         "description": "Молодая мать смотрит на спящего ребёнка сквозь прозрачную ткань колыбели. Моризо была одной из немногих женщин-импрессионистов и единственной, кто выставлялся на первой импрессионистской выставке. Она изображала приватный женский мир — то, что было недоступно художникам-мужчинам. Картина кажется простой — и именно поэтому трогает.",
     },
     {
         "title": "🖼 Камиль Писсарро — «Бульвар Монмартр ночью» (1897)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/forty/Camille_Pissarro_-_Boulevard_Montmartre_at_Night.jpg/1280px-Camille_Pissarro_-_Boulevard_Montmartre_at_Night.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Camille_Pissarro%2C_Boulevard_Montmartre%2C_nuit.jpg/1280px-Camille_Pissarro%2C_Boulevard_Montmartre%2C_nuit.jpg",
         "description": "Писсарро снял номер в гостинице и написал серию видов бульвара Монмартр в разное время суток и при разной погоде — один из первых в истории примеров сериальной живописи. Ночная версия — единственная в серии — была написана по памяти и стала самой поэтичной. Художник страдал от болезни глаз и работал, не выходя на улицу.",
     },
     {
@@ -306,7 +306,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Эгон Шиле — «Семья» (1918)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/4/forty/Egon_Schiele_-_The_Family_-_Google_Art_Project.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Egon_Schiele_-_The_Family_%281918%29.jpg/800px-Egon_Schiele_-_The_Family_%281918%29.jpg",
         "description": "Последняя большая картина Шиле — он умер от испанского гриппа в 28 лет, через три дня после смерти беременной жены. На картине изображены мужчина, женщина и ребёнок — предположительно автопортрет с семьёй, которой уже не было. Шиле прожил короткую жизнь, но создал один из самых узнаваемых стилей в истории экспрессионизма.",
     },
     {
@@ -416,7 +416,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Люсьен Фрейд — «Спящий социальный работник» (1995)",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/thirty/Benefits_Supervisor_Sleeping.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Lucian_Freud_-_Benefits_Supervisor_Sleeping.jpg/800px-Lucian_Freud_-_Benefits_Supervisor_Sleeping.jpg",
         "description": "Грандиозный портрет обнажённой женщины, написанный с беспощадной точностью. Люсьен Фрейд — внук Зигмунда Фрейда — создавал портреты, в которых плоть изображена с почти медицинской честностью. Его работы продаются за десятки миллионов. Он работал только с людьми, которых знал лично, и требовал сотен сеансов позирования.",
     },
     {
@@ -446,7 +446,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Балтюс — «Гитарный урок» (1934)",
-        "image": "https://upload.wikimedia.org/wikipedia/en/3/thirty/Balthus-The-Guitar-Lesson-1934.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/en/thumb/3/36/Balthus_Guitar_Lesson.jpg/800px-Balthus_Guitar_Lesson.jpg",
         "description": "Картина была показана только один раз при жизни художника — он сам убрал её из обращения. Балтюс изображал девочек-подростков в двусмысленных позах — это делало его одновременно скандальным и коллекционируемым. Он никогда не давал интервью и запрещал публиковать свои фотографии. «Не пишите ничего обо мне — не существует никакого Балтюса».",
     },
     {
@@ -486,7 +486,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Данте Габриэль Россетти — «Благовещение» (1850)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/sixty/Dante_Gabriel_Rossetti_-_Ecce_Ancilla_Domini!_-_Google_Art_Project.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Dante_Gabriel_Rossetti_-_Ecce_Ancilla_Domini%21.jpg/600px-Dante_Gabriel_Rossetti_-_Ecce_Ancilla_Domini%21.jpg",
         "description": "Белая палитра, смиренная Мария, ангел с лилией — всё написано с почти болезненной утончённостью. Россетти был основателем братства прерафаэлитов, которые хотели вернуться к простоте и искренности живописи до Рафаэля. Картина вызвала насмешки критиков, но стала манифестом нового взгляда на сакральное.",
     },
     {
@@ -506,7 +506,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Пьер Пюви де Шаванн — «Надежда» (1872)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/sixty/Pierre_Puvis_de_Chavannes_-_Hope.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Pierre_Puvis_de_Chavannes_-_Hope_-_Walters_37116.jpg/800px-Pierre_Puvis_de_Chavannes_-_Hope_-_Walters_37116.jpg",
         "description": "Обнажённая юная фигура сидит на фоне разрушенного города с оливковой ветвью в руке. Написана сразу после поражения Франции в войне с Пруссией и осады Парижа. Пюви де Шаванн создавал монументальные символические образы — его стиль повлиял на Гогена, Сёра и многих других.",
     },
     {
@@ -521,7 +521,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Люк Оливье Мерсон — «Отдых на пути в Египет» (1879)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/thirty/Luc-Olivier_Merson_-_Rest_on_the_Flight_into_Egypt_-_Google_Art_Project.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Merson-rest-on-flight-into-egypt.jpg/1280px-Merson-rest-on-flight-into-egypt.jpg",
         "description": "Мария с младенцем спит в объятиях сфинкса в пустыне, Иосиф дремлет рядом с верблюдом. Это не каноническое изображение — художник придумал сцену сам. Картина необычна тем, что христианский сюжет помещён в древнеегипетский контекст — как напоминание о глубине времени, в котором происходили евангельские события.",
     },
     {
@@ -601,7 +601,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Кузьма Петров-Водкин — «Купание красного коня» (1912)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/twenty/Petrov-Vodkin-horse.jpg/1280px-Petrov-Vodkin-horse.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Kuzma_Petrov-Vodkin_-_Bathing_of_a_Red_Horse.jpg/1280px-Kuzma_Petrov-Vodkin_-_Bathing_of_a_Red_Horse.jpg",
         "description": "Красный конь несёт юного всадника по воде. Картина была написана до Первой мировой — но когда она грянула, многие стали видеть в красном коне предвестника катастрофы. Художник был потрясён этим совпадением. Сам он говорил, что думал только о цвете и форме, но признавал, что художник видит больше, чем понимает.",
     },
     {
@@ -631,7 +631,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Виктор Васнецов — «Алёнушка» (1881)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/2/twenty/Vasnetsov_alenushka.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Vasnetsov_Alenushka_1881.jpg/800px-Vasnetsov_Alenushka_1881.jpg",
         "description": "Девочка сидит у тёмного лесного пруда, обхватив колени — одна, тоскующая. Картина написана по мотивам русской сказки, но Васнецов говорил, что нашёл образ в реальной жизни: он видел осиротевших крестьянских детей. Лес написан с такой густотой и замкнутостью, что кажется — выхода нет.",
     },
     {
@@ -766,7 +766,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Иоахим Патинир — «Харон пересекает реку Стикс» (1520–1524)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/thirty/Joachim_Patinir_-_Crossing_the_River_Styx.jpg/1280px-Joachim_Patinir_-_Crossing_the_River_Styx.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Joachim_Patinir_-_Crossing_the_River_Styx_-_Prado.jpg/1280px-Joachim_Patinir_-_Crossing_the_River_Styx_-_Prado.jpg",
         "description": "Лодка плывёт по реке между зелёным раем и огненным адом. Патинир считается изобретателем жанра «мировой пейзаж» — когда панорама природы становится главным героем картины. Харон с веслом смотрит на душу — она ещё не знает, куда плывёт. Пространство картины устроено как нравственный выбор.",
     },
     {
@@ -796,12 +796,12 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Антонелло да Мессина — «Святой Иероним в своём кабинете» (1474–1475)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/thirty/Antonello_da_Messina_-_St_Jerome_in_his_Study_-_National_Gallery_London.jpg/800px-Antonello_da_Messina_-_St_Jerome_in_his_Study_-_National_Gallery_London.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Antonello_da_Messina_-_Saint_Jerome_in_his_Study_-_National_Gallery_London.jpg/800px-Antonello_da_Messina_-_Saint_Jerome_in_his_Study_-_National_Gallery_London.jpg",
         "description": "Учёный сидит в кабинете внутри огромного готического здания, а за аркой — пейзаж с животными. Антонелло принёс в Италию технику масляной живописи из Нидерландов. Картина поражает интенсивностью пространства: снаружи мир, внутри — человек за работой, и граница между ними открыта.",
     },
     {
         "title": "🖼 Витторе Карпаччо — «Сон святой Урсулы» (1495)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/forty/Carpaccio_-_Dream_of_St._Ursula_-_WGA04212.jpg/1280px-Carpaccio_-_Dream_of_St._Ursula_-_WGA04212.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vittore_Carpaccio_-_The_Dream_of_Saint_Ursula_-_Google_Art_Project.jpg/1280px-Vittore_Carpaccio_-_The_Dream_of_Saint_Ursula_-_Google_Art_Project.jpg",
         "description": "Юная святая спит в своей комнате, ангел входит через дверь с сообщением о мученической смерти. Карпаччо написал комнату с венецианской точностью — каждый предмет реален. Но в дверях стоит вестник из другого мира. Картина соединяет обыденность и сверхъестественное с полным отсутствием пафоса.",
     },
     {
@@ -816,7 +816,7 @@ PAINTINGS = [
     },
     {
         "title": "🖼 Симон Мартини — «Благовещение» (1333)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/fifty/Simone_Martini_-_The_Annunciation_with_St._Margaret_and_St._Ansanus.jpg/1280px-Simone_Martini_-_The_Annunciation_with_St._Margaret_and_St._Ansanus.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Simone_Martini_and_Lippo_Memmi_-_The_Annunciation_and_Two_Saints_-_WGA21418.jpg/1280px-Simone_Martini_and_Lippo_Memmi_-_The_Annunciation_and_Two_Saints_-_WGA21418.jpg",
         "description": "Ангел с ветвью оливы и испуганная Мария — между ними золотые слова приветствия, выполненные рельефом. Симон Мартини работал в Авиньоне и создал один из самых изысканных образцов готической живописи. Петрарка, живший там же, написал два сонета, посвящённых этому художнику.",
     },
     {
