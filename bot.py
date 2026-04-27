@@ -12,12 +12,12 @@ BOT_TOKEN = "8725776252:AAE1QI_Sl_UgsFvBZtnYa71PE6n5h8qyoh0"
 
 CHAT_IDS = [
     586687616,
-    -1003632635325,
+    @rassvetpotemki,
 ]
 
 SEND_TIMES = [
     (8, 5),
-    (13, 4),
+    (13, 7),
 ]
 
 TIMEZONE = "Europe/Moscow"
