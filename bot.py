@@ -17,7 +17,7 @@ CHAT_IDS = [
 
 SEND_TIMES = [
     (8, 5),
-    (13, 7),
+    (13, 8),
 ]
 
 TIMEZONE = "Europe/Moscow"
