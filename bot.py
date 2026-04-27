@@ -35,37 +35,58 @@ quote_index = 0
 painting_index = 0
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; WisdomBot/1.0)"
+    "User-Agent": "WisdomBot/1.0 (educational Telegram bot; contact via Telegram @rassvetpotemki)"
 }
 
 
-async def fetch_image(url: str) -> bytes | None:
+async def fetch_image_bytes(url: str) -> bytes | None:
     try:
-        async with httpx.AsyncClient(headers=HEADERS, follow_redirects=True, timeout=15) as client:
+        async with httpx.AsyncClient(headers=HEADERS, follow_redirects=True, timeout=20) as client:
             r = await client.get(url)
-            if r.status_code == 200:
+            if r.status_code == 200 and len(r.content) > 1000:
                 return r.content
+            else:
+                print(f"Bad response {r.status_code} for {url}")
     except Exception as e:
-        print(f"Failed to fetch image {url}: {e}")
+        print(f"Failed to fetch {url}: {e}")
     return None
 
 
-async def send_to_all(bot, message, photo_url=None):
-    image_bytes = None
-    if photo_url:
-        image_bytes = await fetch_image(photo_url)
+async def get_wikipedia_image_url(filename: str) -> str | None:
+    """Get direct image URL via Wikipedia API"""
+    api_url = "https://en.wikipedia.org/w/api.php"
+    params = {
+        "action": "query",
+        "titles": f"File:{filename}",
+        "prop": "imageinfo",
+        "iiprop": "url",
+        "format": "json"
+    }
+    try:
+        async with httpx.AsyncClient(headers=HEADERS, timeout=10) as client:
+            r = await client.get(api_url, params=params)
+            data = r.json()
+            pages = data.get("query", {}).get("pages", {})
+            for page in pages.values():
+                imageinfo = page.get("imageinfo", [])
+                if imageinfo:
+                    return imageinfo[0].get("url")
+    except Exception as e:
+        print(f"Wikipedia API error: {e}")
+    return None
 
+
+async def send_to_all(bot, message, photo_bytes=None, photo_url=None):
     for chat_id in CHAT_IDS:
         try:
-            if image_bytes:
+            if photo_bytes:
                 await bot.send_photo(
                     chat_id=chat_id,
-                    photo=image_bytes,
+                    photo=photo_bytes,
                     caption=message,
                     parse_mode="Markdown"
                 )
             elif photo_url:
-                # fallback: send as text with link
                 await bot.send_message(
                     chat_id=chat_id,
                     text=message + f"\n\n[Смотреть картину]({photo_url})",
@@ -79,6 +100,32 @@ async def send_to_all(bot, message, photo_url=None):
                 )
         except Exception as e:
             print(f"Error sending to {chat_id}: {e}")
+
+
+async def get_painting_image(painting: dict) -> bytes | None:
+    url = painting.get("image", "")
+    if not url:
+        return None
+
+    # Try direct fetch first
+    img = await fetch_image_bytes(url)
+    if img:
+        return img
+
+    # If failed, try to extract filename and use Wikipedia API
+    if "wikipedia/commons" in url or "wikipedia/en" in url:
+        # Extract filename from URL
+        filename = url.split("/")[-1]
+        if "px-" in filename:
+            # thumbnail - get original name
+            filename = filename.split("px-", 1)[1]
+        api_url = await get_wikipedia_image_url(filename)
+        if api_url:
+            img = await fetch_image_bytes(api_url)
+            if img:
+                return img
+
+    return None
 
 
 async def send_daily_quote(context: ContextTypes.DEFAULT_TYPE):
@@ -96,7 +143,9 @@ async def send_painting(context: ContextTypes.DEFAULT_TYPE):
     caption = f"{painting['title']}\n\n{painting['description']}"
     if len(caption) > 1024:
         caption = caption[:1021] + "..."
-    await send_to_all(context.bot, caption, photo_url=painting["image"])
+
+    img = await get_painting_image(painting)
+    await send_to_all(context.bot, caption, photo_bytes=img, photo_url=painting.get("image") if not img else None)
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -126,14 +175,13 @@ async def painting_now(update: Update, context: ContextTypes.DEFAULT_TYPE):
     caption = f"{painting['title']}\n\n{painting['description']}"
     if len(caption) > 1024:
         caption = caption[:1021] + "..."
-    image_bytes = await fetch_image(painting["image"])
+
+    await update.message.reply_text("Загружаю картину...")
+    img = await get_painting_image(painting)
+
     try:
-        if image_bytes:
-            await update.message.reply_photo(
-                photo=image_bytes,
-                caption=caption,
-                parse_mode="Markdown"
-            )
+        if img:
+            await update.message.reply_photo(photo=img, caption=caption, parse_mode="Markdown")
         else:
             await update.message.reply_text(
                 caption + f"\n\n[Смотреть картину]({painting['image']})",
