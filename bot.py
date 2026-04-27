@@ -16,8 +16,8 @@ CHAT_IDS = [
 ]
 
 SEND_TIMES = [
-    (8, 5),
-    (13,10),
+    (7, 30),
+    (13, 13),
 ]
 
 TIMEZONE = "Europe/Moscow"
@@ -25,17 +25,29 @@ TIMEZONE = "Europe/Moscow"
 sys.path.insert(0, os.path.dirname(__file__))
 from quotes import QUOTES
 
+# Перемешиваем список при старте
+random.shuffle(QUOTES)
+quote_index = 0
+
 
 async def send_daily_quote(context: ContextTypes.DEFAULT_TYPE):
-    job_data = context.job.data
-    quote = QUOTES[job_data["index"] % len(QUOTES)]
-    job_data["index"] += 1
+    global quote_index
+    quote = QUOTES[quote_index % len(QUOTES)]
+    quote_index += 1
     message = f"{quote['title']}\n\n_{quote['text']}_\n\n{quote['reflection']}"
     for chat_id in CHAT_IDS:
         try:
             await context.bot.send_message(chat_id=chat_id, text=message, parse_mode="Markdown")
         except Exception as e:
             print(f"Error sending to {chat_id}: {e}")
+
+
+async def quote_now(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    global quote_index
+    quote = QUOTES[quote_index % len(QUOTES)]
+    quote_index += 1
+    message = f"{quote['title']}\n\n_{quote['text']}_\n\n{quote['reflection']}"
+    await update.message.reply_text(message, parse_mode="Markdown")
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -47,12 +59,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
-async def quote_now(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    quote = random.choice(QUOTES)
-    message = f"{quote['title']}\n\n_{quote['text']}_\n\n{quote['reflection']}"
-    await update.message.reply_text(message, parse_mode="Markdown")
-
-
 def main():
     logging.basicConfig(level=logging.INFO)
     app = Application.builder().token(BOT_TOKEN).build()
@@ -60,7 +66,7 @@ def main():
     app.add_handler(CommandHandler("quote", quote_now))
 
     tz = pytz.timezone(TIMEZONE)
-    job_data = {"index": 0}
+    job_data = {}
 
     for hour, minute in SEND_TIMES:
         send_time = time(hour=hour, minute=minute, tzinfo=tz)
