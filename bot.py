@@ -4,6 +4,7 @@ import random
 import pytz
 import sys
 import os
+import httpx
 
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
@@ -33,15 +34,41 @@ random.shuffle(PAINTINGS)
 quote_index = 0
 painting_index = 0
 
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; WisdomBot/1.0)"
+}
 
-async def send_to_all(bot, message, photo=None):
+
+async def fetch_image(url: str) -> bytes | None:
+    try:
+        async with httpx.AsyncClient(headers=HEADERS, follow_redirects=True, timeout=15) as client:
+            r = await client.get(url)
+            if r.status_code == 200:
+                return r.content
+    except Exception as e:
+        print(f"Failed to fetch image {url}: {e}")
+    return None
+
+
+async def send_to_all(bot, message, photo_url=None):
+    image_bytes = None
+    if photo_url:
+        image_bytes = await fetch_image(photo_url)
+
     for chat_id in CHAT_IDS:
         try:
-            if photo:
+            if image_bytes:
                 await bot.send_photo(
                     chat_id=chat_id,
-                    photo=photo,
+                    photo=image_bytes,
                     caption=message,
+                    parse_mode="Markdown"
+                )
+            elif photo_url:
+                # fallback: send as text with link
+                await bot.send_message(
+                    chat_id=chat_id,
+                    text=message + f"\n\n[Смотреть картину]({photo_url})",
                     parse_mode="Markdown"
                 )
             else:
@@ -69,7 +96,7 @@ async def send_painting(context: ContextTypes.DEFAULT_TYPE):
     caption = f"{painting['title']}\n\n{painting['description']}"
     if len(caption) > 1024:
         caption = caption[:1021] + "..."
-    await send_to_all(context.bot, caption, photo=painting["image"])
+    await send_to_all(context.bot, caption, photo_url=painting["image"])
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -99,14 +126,21 @@ async def painting_now(update: Update, context: ContextTypes.DEFAULT_TYPE):
     caption = f"{painting['title']}\n\n{painting['description']}"
     if len(caption) > 1024:
         caption = caption[:1021] + "..."
+    image_bytes = await fetch_image(painting["image"])
     try:
-        await update.message.reply_photo(
-            photo=painting["image"],
-            caption=caption,
-            parse_mode="Markdown"
-        )
+        if image_bytes:
+            await update.message.reply_photo(
+                photo=image_bytes,
+                caption=caption,
+                parse_mode="Markdown"
+            )
+        else:
+            await update.message.reply_text(
+                caption + f"\n\n[Смотреть картину]({painting['image']})",
+                parse_mode="Markdown"
+            )
     except Exception as e:
-        await update.message.reply_text(f"Ошибка загрузки картины: {e}")
+        await update.message.reply_text(f"Ошибка: {e}")
 
 
 def main():
