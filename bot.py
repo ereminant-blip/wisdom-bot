@@ -9,9 +9,17 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
 BOT_TOKEN = "8725776252:AAE1QI_Sl_UgsFvBZtnYa71PE6n5h8qyoh0"
-CHAT_ID = 586687616
-SEND_HOUR = 7
-SEND_MINUTE = 0
+
+CHAT_IDS = [
+    586687616,
+    -1003632635325,
+]
+
+SEND_TIMES = [
+    (7, 30),
+    (13, 5),
+]
+
 TIMEZONE = "Europe/Moscow"
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -23,24 +31,18 @@ async def send_daily_quote(context: ContextTypes.DEFAULT_TYPE):
     quote = QUOTES[job_data["index"] % len(QUOTES)]
     job_data["index"] += 1
     message = f"{quote['title']}\n\n_{quote['text']}_\n\n{quote['reflection']}"
-    await context.bot.send_message(chat_id=CHAT_ID, text=message, parse_mode="Markdown")
+    for chat_id in CHAT_IDS:
+        try:
+            await context.bot.send_message(chat_id=chat_id, text=message, parse_mode="Markdown")
+        except Exception as e:
+            print(f"Error sending to {chat_id}: {e}")
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "Мудрость древних - ежедневный бот\n\n"
-        "Каждое утро в 7:00 по Москве - отрывок из великих текстов человечества.\n\n"
-        f"В коллекции {len(QUOTES)} отрывков из:\n"
-        "- Эпоса о Гильгамеше и Египта\n"
-        "- Библии (Ветхий и Новый завет)\n"
-        "- Платона, Аристотеля, Сократа\n"
-        "- Марка Аврелия, Сенеки, Эпиктета\n"
-        "- Лао-цзы, Конфуция, Чжуан-цзы\n"
-        "- Бхагавад-гиты, Дхаммапады\n"
-        "- Руми, Хафиза, Омара Хайяма\n"
-        "- Августина, Фомы Аквинского, Данте\n"
-        "- Монтеня, Паскаля, Канта, Спинозы\n"
-        "- Ницше, Достоевского, Толстого и других\n\n"
+        "Отрывки отправляются в 7:30 и 13:05 по Москве.\n\n"
+        f"В коллекции {len(QUOTES)} отрывков.\n\n"
         "Используйте /quote чтобы получить отрывок прямо сейчас."
     )
 
@@ -58,11 +60,19 @@ def main():
     app.add_handler(CommandHandler("quote", quote_now))
 
     tz = pytz.timezone(TIMEZONE)
-    send_time = time(hour=SEND_HOUR, minute=SEND_MINUTE, tzinfo=tz)
     job_data = {"index": 0}
-    app.job_queue.run_daily(send_daily_quote, time=send_time, data=job_data, name="daily_wisdom")
 
-    print(f"Bot started. Quotes: {len(QUOTES)}. Sending at {SEND_HOUR}:{SEND_MINUTE:02d} Moscow time.")
+    for hour, minute in SEND_TIMES:
+        send_time = time(hour=hour, minute=minute, tzinfo=tz)
+        app.job_queue.run_daily(
+            send_daily_quote,
+            time=send_time,
+            data=job_data,
+            name=f"daily_wisdom_{hour}_{minute}"
+        )
+        print(f"Scheduled at {hour}:{minute:02d} Moscow time")
+
+    print(f"Bot started. Quotes: {len(QUOTES)}. Sending to {len(CHAT_IDS)} chats.")
     app.run_polling()
 
 
