@@ -75,8 +75,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "🗣 9:45 — крылатая фраза (канал + лично)\n\n"
         "Только лично:\n"
         "/quote — цитата\n"
-        "/phrase — крылатая фраза\n"
-        "/painting — картина для канала"
+        "/phrase — словарь\n"
+        "/painting — картина"
     )
 
 
